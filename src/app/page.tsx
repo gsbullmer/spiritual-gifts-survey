@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Gifts } from "./survey/data";
 
 const Home = () => {
   return (
@@ -39,21 +40,7 @@ const Home = () => {
           to live it out.
         </p>
         <ul className="grid grid-cols-5 gap-x-16 w-fit mx-auto">
-          <Link href="/gifts/administration"><li className="w-fit">Administration</li></Link>
-          <Link href="/gifts/artistry-creativity"><li className="w-fit">Artistry/Creativity</li></Link>
-          <Link href="/gifts/builder"><li className="w-fit">Builder</li></Link>
-          <Link href="/gifts/compassion"><li className="w-fit">Compassion</li></Link>
-          <Link href="/gifts/encouragement"><li className="w-fit">Encouragement</li></Link>
-          <Link href="/gifts/evangelism"><li className="w-fit">Evangelism</li></Link>
-          <Link href="/gifts/faith"><li className="w-fit">Faith</li></Link>
-          <Link href="/gifts/generosity"><li className="w-fit">Generosity</li></Link>
-          <Link href="/gifts/helper-service"><li className="w-fit">Helper/Service</li></Link>
-          <Link href="/gifts/hospitality"><li className="w-fit">Hospitality</li></Link>
-          <Link href="/gifts/leadership"><li className="w-fit">Leadership</li></Link>
-          <Link href="/gifts/music-singing"><li className="w-fit">Music/Singing</li></Link>
-          <Link href="/gifts/shepherding"><li className="w-fit">Shepherding</li></Link>
-          <Link href="/gifts/teaching"><li className="w-fit">Teaching</li></Link>
-          <Link href="/gifts/writing"><li className="w-fit">Writing</li></Link>
+          {Gifts.sort((a,b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0).map(gift => <Link key={gift.id} href={`/gifts/${gift.slug}`}><li className="w-fit">{gift.name}</li></Link>)}
         </ul>
       </div>
       <div className="my-8">
