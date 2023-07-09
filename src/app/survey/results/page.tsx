@@ -10,9 +10,9 @@ const Results = () => {
     return (
         <>
             <p>My Gifts are:</p>
-            <ul>
+            <ol>
                 {gifts?.map(gift => <li key={gift}>{Gifts.filter(v => v.id === gift)[0].name}</li>)}
-            </ul>
+            </ol>
         </>
     );
 }
